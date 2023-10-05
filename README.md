@@ -31,7 +31,23 @@ Details: This uses a similar general approach to the above question. Here we are
 Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold
 Details: This uses the product sold information from the sales_info table. The interesting part about this question is ranking across the product after grouping and selecting the number one ranked product from each country/city. 
 
-Question 5: 
+Question 5: Can we summarize the impact of revenue generated from each city/country?
+Details: As noted in the starting_with_questions file, I find this question odd. From the analysis of the information present, no richer set revenue information disaggregated by country/city can be obtained from the dataset aside what was used in Question 1 utilizing the all_sessions table.
+
+Question 6: What products are among the top 10 sold but whose stock level are currently below the average stock level for all products?
+Details: We rank the product sold in the sales_info table and use that as part of a filtering subquery together with information in the product_info table.
+
+Question 7: The top 4 most important channel groups based on transactions revenue
+Details: This is about aggregating by the `channelgrouping` column and then summing the `totaltransactionrevenue` information
+
+Question 8:  What is the transaction revenue from each country per year?
+Details: Here, we combine per country per revenue information with the date information present in the session_info table.
+
+Question 9: What are the top 10 products with an average sentiment score greater than the average sentiment of all products?
+Details: We get the average sentiment from all products via a subquery and then compute the average sentiment score for the top product while filtering with a having clause after the grouping.
+
+Question 10: For each product, what is the most important channel based on site visits?
+Details: The important idea is to group by product name and  `channelgrouping`, and then select the highest ranked channel for each unique product name.
 
 
 
